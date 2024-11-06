@@ -16,7 +16,7 @@ Console.WriteLine(7);
 /*double rad = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine($"Dlina = {2 * Math.PI * rad:N2}");
 Console.WriteLine($"Ploschad = {Math.PI * rad * rad:N2}");
-/*7. Найти значение y=cos(x)*/
+/*7. Найти значение y=cos(x)
 /*int x = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine(Math.Cos(x));
 /*8. Даны основания и высота равнобедренной трапеции. Найти ее периметр.*/
@@ -36,8 +36,8 @@ Console.WriteLine("{0, 15}", "Май");
 /*Console.WriteLine("Введите две переменные");
 try
 {
-    decimal a = Convert.ToDecimal(Console.ReadLine());
-    decimal b = Convert.ToDecimal(Console.ReadLine());
+    double a = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
+    double b = Convert.ToDouble(Console.ReadLine().Replace('.', ','));
     Console.WriteLine(b);
     Console.WriteLine(a);
 }
@@ -262,10 +262,19 @@ else
 }
 /*27. Часовая стрелка образует угол y с лучом, проходящим через центр и через точку, соответствующую 12 часам на циферблате, 0 ≤ y ≤ 2 .
  * Определить значение угла для минутной стрелки, а также количество полных часов и полных минут.*/
-
-
-
-
+/*double y = Convert.ToDouble(Console.ReadLine());
+int rad = Convert.ToInt32(y * 180);
+int chas = rad / 30;
+if (rad >= 30)
+{
+    while (rad >= 30)
+    {
+        rad -= 30;
+    }
+}
+int strelka = rad * 12;
+int minuta = strelka / 6;
+Console.WriteLine($"Угол минутной стрелки: {strelka}, кол-во часов: {chas}, минут: {minuta}");
 /*28. Создать программу, которая будет выводить на экран меньшее по модулю из трёх введённых пользователем вещественных чисел*/
 /*int pervoe = Convert.ToInt32(Console.ReadLine());
 int vtoroe = Convert.ToInt32(Console.ReadLine());
@@ -328,7 +337,7 @@ Console.WriteLine(an);
 /*34. Составить программу, которая:
 а) запрашивает имя человека и повторяет его на экране;
 б) запрашивает имя человека и повторяет его на экране с приветствием.*/
-Console.WriteLine("Введите ваше имя: ");
+/*Console.WriteLine("Введите ваше имя: ");
 string imya = Console.ReadLine();
 Console.WriteLine(imya);
 Console.WriteLine($"{imya}, здравствуйте");
@@ -336,3 +345,46 @@ Console.WriteLine($"{imya}, здравствуйте");
 Пользователь называет имя. Консоль пишет: привет, <имя пользователя>. После этого пользователь спрашивает, знает ли консоль что-то о тайной комнате.
 Консоль отвечает «Да». После этого пользователь спрашивает, может ли рассказать. Консоль отвечает «Нет».
 Спустя 5 секунд консоль дополняет «но могу показать». Консоль меняет цвет на любой случайный цвет.*/
+
+
+
+/*36. Вычислить контрольную цифру штрихкода(EAN13). a. 12 цифр определяются случайным образом. b. 12 цифр вводит пользователь*/
+/*Random rnd = new Random();
+int[] shtr = [rnd.Next(0,9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9),rnd.Next(0, 9)];
+int ean = shtr[0] + shtr[2] + shtr[4] + shtr[6] + shtr[8] + shtr[10] + (shtr[1] + shtr[3] + shtr[5] + shtr[7] + shtr[9] + shtr[11]) * 3;
+int a = (ean / 10 + 1) * 10;
+int ean13 = a - ean;
+if (ean13 == 10)
+{
+    Console.WriteLine(0);
+}
+else
+{
+    Console.WriteLine(ean13);
+}
+b*/
+int a1 = Convert.ToInt32(Console.ReadLine());
+int a2 = Convert.ToInt32(Console.ReadLine());
+int a3 = Convert.ToInt32(Console.ReadLine());
+int a4 = Convert.ToInt32(Console.ReadLine());
+int a5 = Convert.ToInt32(Console.ReadLine());
+int a6 = Convert.ToInt32(Console.ReadLine());
+int a7 = Convert.ToInt32(Console.ReadLine());
+int a8 = Convert.ToInt32(Console.ReadLine());
+int a9 = Convert.ToInt32(Console.ReadLine());
+int a10 = Convert.ToInt32(Console.ReadLine());
+int a11 = Convert.ToInt32(Console.ReadLine());
+int a12 = Convert.ToInt32(Console.ReadLine());
+int ean1 = a1 + a3 + a5 + a7 + a9 + a11;
+int ean2 = a2 + a4 + a6 + a8 + a10 + a12;
+int ean = ean1 + ean2 * 3;
+int a = (ean / 10 + 1) * 10;
+int ean13 = a - ean;
+if (ean13 == 10)
+{
+    Console.WriteLine(0);
+}
+else
+{
+    Console.WriteLine(ean13);
+}
