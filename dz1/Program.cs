@@ -386,4 +386,4 @@ if (ean13 == 10)
 else
 {
     Console.WriteLine(ean13);
-}*/
+}
