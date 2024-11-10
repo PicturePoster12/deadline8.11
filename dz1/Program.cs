@@ -689,7 +689,7 @@ class Program
         try
         {
             char[] ean_b = Console.ReadLine().ToCharArray();
-            if (ean_b.Length != 12)
+            if (ean_b.Length == 12)
             {
                 int chet = 0; int nechet = 0;
                 for (int i = 0; i < ean_b.Length; ++i)
@@ -705,7 +705,14 @@ class Program
                 }
                 int _ean13 = ((chet + nechet) / 10 + 1) * 10;
                 int ean13_b = _ean13 - (chet + nechet);
-                Console.WriteLine(ean13_b);
+                if (ean13_b == 10)
+                {
+                    Console.WriteLine(0);
+                }
+                else
+                {
+                    Console.WriteLine(ean13_b);
+                }
             }
             else
             {
